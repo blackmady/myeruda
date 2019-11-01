@@ -1,5 +1,3 @@
-import { exportDefaultDeclaration } from "@babel/types"
-
 interface IOption{
   // 触点数,默认2
   touches?:number

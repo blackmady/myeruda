@@ -17,7 +17,7 @@ interface IOption{
   onErrorShow?:boolean
 }
 // 使用
-import myeruda from 'myeruda
-// 三指长按触发
-myeruda({touches:3})
+import myeruda from 'myeruda'
+// 三指长按触发,生产模式下启用
+myeruda({touches:3,onlyDev:false})
 ```
