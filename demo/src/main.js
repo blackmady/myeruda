@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import myeruda from './utils'
+import myeruda from 'myeruda'
 myeruda()
 Vue.config.productionTip = false
 
