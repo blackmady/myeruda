@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import myeruda from 'myeruda'
-myeruda()
+// 生产环境下开启
+myeruda({onlyDev:false})
 Vue.config.productionTip = false
 
 new Vue({
