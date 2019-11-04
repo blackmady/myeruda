@@ -1,7 +1,7 @@
 {
   "name": "myeruda",
-  "version": "1.2.1",
-  "description": "一个快速集成于现在开发环境的彩蛋触发式eruda",
+  "version": "1.2.2",
+  "description": "一个快速集成于现代开发环境的彩蛋触发式调试工具(基于eruda)",
   "main": "lib/index.js",
   "scripts": {
     "start": "webpack-dev-server --open development",
@@ -15,7 +15,14 @@
     "plugin",
     "typescript",
     "eruda",
-    "myeruda"
+    "myeruda",
+    "console",
+    "vConsole",
+    "debug",
+    "debugger",
+    "前端调试",
+    "调试工具",
+    "调试面板"
   ],
   "author": "Arcoon",
   "pre-commit": [

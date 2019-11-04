@@ -26,7 +26,7 @@ function myeruda(opt?: IOption) {
   let eruda
   // tslint:disable-next-line: variable-name
   const _opt: IOption = {
-    touches: 2,
+    touches: 3,
     duration: 1000,
     onlyDev: true,
     preload: false,

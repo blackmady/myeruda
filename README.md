@@ -8,7 +8,7 @@
 
 [DEMO](https://blackmady.github.io/myeruda/)
 
-![DEMO](./v1.2.0.jpg)
+![界面示意图](v1.2.2.png)
 
 参数如下：
 ```javascript
@@ -16,7 +16,7 @@
 interface IOption {
   // 生产环境下开启里，从CDN预加载eruda
   preload?: boolean
-  // 触点数,默认2
+  // 触点数,默认3
   touches?: number
   // 触发时长,默认1000(1秒)
   duration?: number
