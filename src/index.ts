@@ -81,7 +81,7 @@ function myeruda(opt?: IOption) {
         el.style.display = ''
       })
     }
-    devlog(`eruda初始化完毕：当前为${process.env.NODE_ENV}模式，${_opt.touches}指长按${_opt.duration! / 1000}秒后开启！`)
+    devlog(`myeruda初始化完毕：当前为${process.env.NODE_ENV}模式，${_opt.touches}指长按${_opt.duration! / 1000}秒后开启！`)
   }
   function bindEvents() {
     window.addEventListener('touchstart', e => {

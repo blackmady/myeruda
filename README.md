@@ -8,6 +8,8 @@
 
 [DEMO](https://blackmady.github.io/myeruda/)
 
+![DEMO](./v1.2.0.jpg)
+
 参数如下：
 ```javascript
 // option参数说明
