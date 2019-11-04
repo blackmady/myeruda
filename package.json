@@ -1,6 +1,6 @@
 {
   "name": "myeruda",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "description": "一个快速集成于现在开发环境的彩蛋触发式eruda",
   "main": "lib/index.js",
   "scripts": {
