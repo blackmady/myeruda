@@ -24,7 +24,10 @@
     "调试工具",
     "调试面板"
   ],
-  "author": "Arcoon",
+  "author": {
+    "name":"Arcoon",
+    "email":"cg3385@163.com"
+  },
   "pre-commit": [
     "lint"
   ],
