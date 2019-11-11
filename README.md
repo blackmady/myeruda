@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-04 20:38:33
- * @LastEditTime: 2019-11-12 00:25:10
+ * @LastEditTime: 2019-11-12 00:36:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /src/github.com/blackmady/myeruda/README.md
@@ -20,11 +20,15 @@
 ### v1.2.0 (按需打包与加载，只管调用，环境问题交给我)
 > 生产环境不再打包eruda，使用异步加载的方式保证在生产环境下依然可以正常使用（前提是当你配置了onlyDev:false 时）
 
+[Github地址](https://github.com/blackmady/myeruda)
+
 [DEMO](https://blackmady.github.io/myeruda/)
 
 <img src="./v1.3.1.png" height="100"/>
 -----
 <img src="./v1.2.2.png" height="600"/>
+
+### 使用说明
 
 参数如下：
 ```javascript
