@@ -10,6 +10,12 @@ interface IOption {
     onlyDev?: boolean;
     prodConsole?: boolean;
     onErrorShow?: boolean;
+    menu?: {
+        [p: string]: null | {
+            label: string;
+            fn: (...args: any) => void;
+        };
+    };
 }
 declare function myeruda(opt?: IOption): void;
 export default myeruda;
