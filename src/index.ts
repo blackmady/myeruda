@@ -73,9 +73,9 @@ function myeruda(opt?: IOption) {
     // tslint:disable-next-line:variable-name
   const _menu = {
     refresh: {
-      label: '带参刷新',
+      label: '强制刷新',
       fn: () => {
-        const sch = location.search.replace(/__myeruda__=\d*[^\d]&/,'')
+        const sch = location.search.replace(/__myeruda__=\d*&?/,'')
         if (sch.indexOf('?') === 0) {
           location.search = sch.replace(/^\?/, `?__myeruda__=${Date.now()}&`)
         }else{
@@ -187,9 +187,9 @@ function myeruda(opt?: IOption) {
             }
             .myeruda-menu{
                 width:80%;
-                box-shadow: 0 0 10px rgba(0,0,0,0.3);
+                box-shadow: 0 0 6px rgba(0,0,0,0.3);
                 border-radius: 5px;
-                background:rgba(255,255,255,0.9)
+                background:rgba(255,255,255,0.98)
             }
             .myeruda-menu a{
                 display: block;
@@ -199,6 +199,10 @@ function myeruda(opt?: IOption) {
                 color:#333;
                 border-bottom: 1px solid #f0f0f0;
                 text-decoration: none;
+                user-select: none;
+            }
+            .myeruda-menu a:last-child{
+                border-bottom:0
             }
         </style>
         <div class="myeruda-menu"></div>
@@ -214,16 +218,20 @@ function myeruda(opt?: IOption) {
           const handler=e=>{
               _opt.menu![m]!.fn(e)
               a.removeEventListener('click',handler)
+              $div.removeEventListener('click',hide)
+          }
+          const hide=e=>{
               document.body.removeChild($div)
           }
           a.addEventListener('click',handler)
+          $div.addEventListener('click',hide)
           $links.append(a)
       }
       // tslint:disable-next-line:no-unused-expression
       $div.querySelector('.myeruda-menu')?.append($links)
       return $div
   }
-  
+
   function bindEvents() {
     window.addEventListener('touchstart', e => {
       return (
