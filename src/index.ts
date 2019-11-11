@@ -41,6 +41,7 @@ function longTap(el:HTMLElement,duration=1000){
                     touchstartTime = 0
                 }
             },100)
+            return false
         })
         el.addEventListener('touchend',()=>{
             touchstartTime = 0
@@ -74,7 +75,7 @@ function myeruda(opt?: IOption) {
     refresh: {
       label: '带参刷新',
       fn: () => {
-        const sch = location.search
+        const sch = location.search.replace(/__myeruda__=\d*[^\d]&/,'')
         if (sch.indexOf('?') === 0) {
           location.search = sch.replace(/^\?/, `?__myeruda__=${Date.now()}&`)
         }else{
