@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-04 20:38:33
- * @LastEditTime: 2019-11-12 00:36:35
+ * @LastEditTime: 2019-11-12 00:45:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /src/github.com/blackmady/myeruda/README.md
@@ -29,8 +29,20 @@
 <img src="./v1.2.2.png" height="600"/>
 
 ### 使用说明
+> 此工具由typescript编写,支持typescript 和 javascript
+```shell
+  # 安装
+  npm i myeruda -S
+```
 
-参数如下：
+```javascript
+// 使用
+import myeruda from 'myeruda'
+// 三指长按触发,在生产环境模式下开启，preload为false时：事件触发后从CDN异步加载eruda,长按控制按钮可以打开菜单
+myeruda({touches:3,onlyDev:false,preload:true})
+```
+
+参数说明如下：
 ```javascript
 // option参数说明
 interface IOption {
@@ -56,10 +68,4 @@ interface IOption {
     }
   }
 }
-```
-```javascript
-// 使用
-import myeruda from 'myeruda'
-// 三指长按触发,在生产环境模式下开启，preload为false时：事件触发后从CDN异步加载eruda,长按控制按钮可以打开菜单
-myeruda({touches:3,onlyDev:false,preload:true})
 ```
