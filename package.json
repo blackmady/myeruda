@@ -1,6 +1,6 @@
 {
   "name": "myeruda",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "一个快速集成于现代开发环境的彩蛋触发式调试工具(基于eruda)",
   "main": "lib/index.js",
   "scripts": {
@@ -42,11 +42,12 @@
   "homepage": "https://github.com/blackmady/myeruda#readme",
   "typings": "./lib/index.d.ts",
   "dependencies": {
-    "eruda": "^1.9.1"
+    "eruda": "^2.4.1"
   },
   "devDependencies": {
     "@types/jest": "^24.0.16",
     "css-loader": "^3.1.0",
+    "eruda": "^2.4.1",
     "file-loader": "^4.1.0",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.8.0",

@@ -31,6 +31,10 @@
 ### 使用说明
 > 此工具由typescript编写,支持typescript 和 javascript
 ```shell
+# 编译,需要安装node 的types
+  npm i @types/node
+```
+```shell
   # 安装
   npm i myeruda -S
 ```
