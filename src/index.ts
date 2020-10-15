@@ -21,45 +21,45 @@ interface IOption {
   menu?: {
     [p: string]: null | {
       label: string
-      fn: (...args:any) => void
+      fn: (...args: any) => void
     }
   }
 }
 
-function longTap(el:HTMLElement,duration=1000){
-    let touchstartTime=0
-    let tid:NodeJS.Timeout
-    const touch= (touches:number,callback?:(e:TouchEvent)=>any):any=>{
-        el.addEventListener('touchstart',e=>{
-            clearInterval(tid)
-            tid=setInterval(async ()=>{
-                touchstartTime += 100
-                if (touchstartTime === duration) {
-                    // tslint:disable-next-line:no-unused-expression
-                    callback?.(e)
-                    clearInterval(tid)
-                    touchstartTime = 0
-                }
-            },100)
-            return false
-        })
-        el.addEventListener('touchend',()=>{
-            touchstartTime = 0
-            clearInterval(tid)
-        })
-    }
-    return touch
+function longTap(el: HTMLElement, duration = 1000) {
+  let touchstartTime = 0
+  let tid: NodeJS.Timeout
+  const touch = (touches: number, callback?: (e: TouchEvent) => any): any => {
+    el.addEventListener('touchstart', e => {
+      clearInterval(tid)
+      tid = setInterval(async () => {
+        touchstartTime += 100
+        if (touchstartTime === duration) {
+          // tslint:disable-next-line:no-unused-expression
+          callback?.(e)
+          clearInterval(tid)
+          touchstartTime = 0
+        }
+      }, 100)
+      return false
+    })
+    el.addEventListener('touchend', () => {
+      touchstartTime = 0
+      clearInterval(tid)
+    })
+  }
+  return touch
 }
 
 function myeruda(opt?: IOption) {
   const isDev = process.env.NODE_ENV === 'development'
   let el: HTMLElement
-    let ctrlBtn:HTMLElement
+  let ctrlBtn: HTMLElement
   let touchstartTime = 0
   let tid: NodeJS.Timeout
   let csl
   let eruda
-    let menu
+  let menu
   // tslint:disable-next-line: variable-name
   const _opt: IOption = {
     touches: 3,
@@ -70,16 +70,16 @@ function myeruda(opt?: IOption) {
     prodConsole: false,
     menu: {}
   }
-    // tslint:disable-next-line:variable-name
+  // tslint:disable-next-line:variable-name
   const _menu = {
     refresh: {
       label: '强制刷新',
       fn: () => {
-        const sch = location.search.replace(/__myeruda__=\d*&?/,'')
+        const sch = location.search.replace(/__myeruda__=\d*&?/, '')
         if (sch.indexOf('?') === 0) {
           location.search = sch.replace(/^\?/, `?__myeruda__=${Date.now()}&`)
-        }else{
-            location.search=`?__myeruda__=${Date.now()}`
+        } else {
+          location.search = `?__myeruda__=${Date.now()}`
         }
       }
     },
@@ -151,7 +151,7 @@ function myeruda(opt?: IOption) {
   function erudaInit() {
     eruda.init()
     el = eruda._$el[0]
-      ctrlBtn=el.children[1] as HTMLElement
+    ctrlBtn = el.children[1] as HTMLElement
     el.style.display = 'none'
     csl = eruda.get('console')
     if (_opt.onErrorShow) {
@@ -159,20 +159,20 @@ function myeruda(opt?: IOption) {
         el.style.display = ''
       })
     }
-    longTap(ctrlBtn)(1,()=>{
-        openMenu()
+    longTap(ctrlBtn)(1, () => {
+      openMenu()
     })
     devlog(`myeruda初始化完毕：当前为${process.env.NODE_ENV}模式，${_opt.touches}指长按${_opt.duration! / 1000}秒后开启！`)
   }
-  function openMenu(){
-      if(!_opt.menu) {return false }
-      if(!menu) {
-        menu=makeMenuLayer()
-      }
-      document.body.append(menu)
+  function openMenu() {
+    if (!_opt.menu) { return false }
+    if (!menu) {
+      menu = makeMenuLayer()
+    }
+    document.body.append(menu)
   }
   function makeMenuLayer() {
-      const div=`<div class="myeruda">
+    const div = `<div class="myeruda">
         <style>
             .myeruda{
                 position: fixed;
@@ -207,29 +207,29 @@ function myeruda(opt?: IOption) {
         </style>
         <div class="myeruda-menu"></div>
       </div>`
-      const $links=document.createDocumentFragment()
-      const $div=document.createElement('div')
-      $div.innerHTML=div
-      for(const m in _opt.menu){
-          if(_opt.menu[m]===null) {continue }
-          const a=document.createElement('a')
-          a.href='javascript:'
-          a.innerText=_opt.menu[m]!.label
-          const handler=e=>{
-              _opt.menu![m]!.fn(e)
-              a.removeEventListener('click',handler)
-              $div.removeEventListener('click',hide)
-          }
-          const hide=e=>{
-              document.body.removeChild($div)
-          }
-          a.addEventListener('click',handler)
-          $div.addEventListener('click',hide)
-          $links.append(a)
+    const $links = document.createDocumentFragment()
+    const $div = document.createElement('div')
+    $div.innerHTML = div
+    for (const m in _opt.menu) {
+      if (_opt.menu[m] === null) { continue }
+      const a = document.createElement('a')
+      a.href = 'javascript:'
+      a.innerText = _opt.menu[m]!.label
+      const handler = e => {
+        _opt.menu![m]!.fn(e)
+        a.removeEventListener('click', handler)
+        $div.removeEventListener('click', hide)
       }
-      // tslint:disable-next-line:no-unused-expression
-      $div.querySelector('.myeruda-menu')?.append($links)
-      return $div
+      a.addEventListener('click', handler)
+      $links.append(a)
+    }
+    const hide = e => {
+      document.body.removeChild($div)
+    }
+    $div.addEventListener('click', hide)
+    // tslint:disable-next-line:no-unused-expression
+    $div.querySelector('.myeruda-menu')?.append($links)
+    return $div
   }
 
   function bindEvents() {
