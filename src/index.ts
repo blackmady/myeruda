@@ -29,10 +29,10 @@ function myeruda(opt?: IOption | Function) {
   }
   const storage = [sessionStorage, localStorage][opt.mode - 1];
   const hasQuery = location.search.includes(opt.key);
-  const needLoad = storage.getItem(opt.key);
   if (hasQuery) {
     storage.setItem(opt.key, Date.now().toString())
   }
+  const needLoad = storage.getItem(opt.key);
   // const { key, ...setting } = opt;
   if (needLoad) {
     return erudaInit(opt.setting)
