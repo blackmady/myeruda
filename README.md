@@ -18,7 +18,7 @@
 
 ### v2.0.0 修改打开触发方式
 
-> 可通过在链接中加入一个指定的参数(默认为"?__myeruda__")开启或关闭此功能,比如http://mywebsite.com?t=1607654240271&__myeruda__=1
+> 可通过在链接中加入一个指定的参数(默认为```?__myeruda__```)开启或关闭此功能,比如```http://mywebsite.com?t=1607654240271&__myeruda__=1```
 
 [Github 地址](https://github.com/blackmady/myeruda)
 
