@@ -18,19 +18,7 @@
 
 ### v2.0.0 修改打开触发方式
 
-> 可通过在链接中加入一个指定的参数开启或关闭此功能
-
-### v1.3.0 加入自定义菜单功能
-
-> 长按 eruda 控制按钮打开菜单,有以下默认菜单
-
-- 强制刷新:解决微信浏览器等环境下调试时烦人的缓存问题
-- 清理 Storage (localStorage,sessionStorage)
-- 清理 Cookie (当前域名及基域名)
-
-### v1.2.0 (按需打包与加载，只管调用，环境问题交给我)
-
-> 生产环境不再打包 eruda，使用异步加载的方式保证在生产环境下依然可以正常使用（前提是当你配置了 onlyDev:false 时）
+> 可通过在链接中加入一个指定的参数(默认为"?__myeruda__")开启或关闭此功能,比如http://mywebsite.com?t=1607654240271&__myeruda__=1
 
 [Github 地址](https://github.com/blackmady/myeruda)
 
@@ -44,7 +32,6 @@
 
 > 此工具由 typescript 编写,支持 typescript 和 javascript
 
-
 ```shell
   # 安装
   npm i myeruda -S
@@ -53,8 +40,6 @@
 ```javascript
 // 使用
 import myeruda from 'myeruda'
-// 三指长按触发,在生产环境模式下开启，preload为false时：事件触发后从CDN异步加载eruda,长按控制按钮可以打开菜单
-// myeruda({touches:3,onlyDev:false,preload:true})  //v1.x
 myeruda() //v2
 ```
 
@@ -62,39 +47,17 @@ myeruda() //v2
 
 ```javascript
 // option参数说明
-// v1.x
-// interface IOption {
-//   // 生产环境下开启里，从CDN预加载eruda
-//   preload?: boolean
-//   // 触点数,默认3
-//   touches?: number
-//   // 触发时长,默认1000(1秒)
-//   duration?: number
-//   // 仅在开发模式启用此功能,默认true
-//   onlyDev?: boolean
-//   // 生产环境下开启myeruda初始化提示
-//   prodConsole?:boolean
-//   // 错误自动触发,默认false
-//   onErrorShow?: boolean
-//   // toolBar 可自定义菜单，长按eruda按钮时显示
-//   menu?: {
-//     [p: string]: null | {
-//       // 菜单名称
-//       label: string
-//       // 菜单点击后执行的函数
-//       fn: (...args:any) => void
-//     }
-//   }
-// }
 // v2
 interface IOption {
-  // 关键的key 用于sessionStorage 和query的key
+  // 关键的key 用于sessionStorage 和query的key 默认: __myeruda__
   key: string
-  // 哪些环境开启此功能
+  // 哪些环境开启此功能,默认: ['development','test']
   envs: string[]
-  // eruda的配置
+  // eruda的配置 默认: {}
   setting?: object
-  // 模式 1:sessionStorage+query 2:localStorage+query 3:auto 自动开启
+  // 模式 1:sessionStorage+query 2:localStorage+query 3:auto 自动开启 默认: 1
   mode: number
 }
 ```
+
+### 其它版本请通过切换版本查看
