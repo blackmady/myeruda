@@ -22,8 +22,9 @@
 
 [Github 地址](https://github.com/blackmady/myeruda)
 
-[github DEMO](https://blackmady.github.io/myeruda/)
-[国内 DEMO](http://none.gitee.io/myeruda/)
+[github DEMO](https://blackmady.github.io/myeruda/?__myeruda__)
+
+[国内 DEMO](http://none.gitee.io/myeruda/?__myeruda__)
 
 <!-- ## <img src="./v1.3.1.png" height="100"/> -->
 
