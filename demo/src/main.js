@@ -21,11 +21,11 @@ import myeruda from '../../lib/index'
  * key:[默认:'__myeruda__'] 关键的key 用于sessionStorage 和query的key
  * envs:[默认:['development', 'test']] 根据实际需要的情况来定，只有这些环境才会开启
  * 
- * 推荐使用方法: myeruda({ envs:['development', 'test', 'product'] })
+ * 推荐使用方法: myeruda({ envs:['development', 'test', 'production'] })
  * 在需要打开eruda的时候可以在链接中加入 ?__myeruda__=0
  * 
  */
-myeruda({ mode: 3 })
+myeruda({ mode: 1, envs: ['development', 'test', 'production'] })
 
 Vue.config.productionTip = false
 new Vue({

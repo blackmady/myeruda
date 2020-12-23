@@ -18,15 +18,17 @@
 
 ### v2.0.0 修改打开触发方式
 
-> 可通过在链接中加入一个指定的参数(默认为```?__myeruda__```)开启或关闭此功能,比如```http://mywebsite.com?t=1607654240271&__myeruda__=1```
+> 可通过在链接中加入一个指定的参数(默认为`?__myeruda__`)开启或关闭此功能,比如`http://mywebsite.com?t=1607654240271&__myeruda__=1`
 
 [Github 地址](https://github.com/blackmady/myeruda)
 
-[DEMO](https://blackmady.github.io/myeruda/)
+[github DEMO](https://blackmady.github.io/myeruda/)
+[国内 DEMO](http://none.gitee.io/myeruda/)
 
 <!-- ## <img src="./v1.3.1.png" height="100"/> -->
 
-<img src="./v1.2.2.png" height="600"/>
+<!-- <img src="./v1.2.2.png" height="600"/> -->
+<img src="./v2.0.0.png" height="600"/>
 
 ### 使用说明
 
@@ -40,7 +42,7 @@
 ```javascript
 // 使用
 import myeruda from 'myeruda'
-myeruda() //v2
+myeruda(option?:IOption) //v2
 ```
 
 参数说明如下：
