@@ -30,7 +30,7 @@
       开发环境:development,测试环境:test,生产环境:production
     
     推荐使用方法: 
-    myeruda({envs:['development','test','product']})
+    myeruda({envs:['development','test','production']})
     在需要打开eruda的时候可以在链接中加入 ?__myeruda__=0
     </pre
             >
